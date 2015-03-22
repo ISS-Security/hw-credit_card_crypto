@@ -24,13 +24,13 @@ Remember that all members of your team should attempt each part of the assignmen
 
 ## Requirements
 
-This project is in two parts. One part is about the Luhn algorithm for credit card number validation. The onther part uses the basic crypto algorithms we saw in class.
+This project is in two parts. One part is about the Luhn algorithm for credit card number validation. The other part uses the basic crypto algorithms we saw in class.
 
 ### A. Luhn Algorithm
 You will write the algorithm used by financial institutions to check whether a credit card number is valid or not, by checking its last digit (checksum). This is done by using the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm). You can see this algorithm in action at any [online Luhn algorithm calculator](http://planetcalc.com/2464/).
 
 1. Implement the file called `luhn_validator.rb`. There is one method you must fill out, called `validate_checksum()`. It must check a credit card number and return (`true`/`false`) whether the last checksum digit is correct.
-2.Implement the file called `credit_card.rb` (see TODO comments):
+2. Implement the file called `credit_card.rb` (see TODO comments):
   - mixin the LuhnValidator
   - initialize the instance variables
   - create a hash that converts the instance variables in a [JSON](http://en.wikipedia.org/wiki/JSON) string format
