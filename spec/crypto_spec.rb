@@ -10,12 +10,12 @@ describe 'Test card info encryption' do
 
   describe 'Using Caeser cipher' do
     it 'should encrypt card information' do
-      enc = SubstitutionCipher::Caeser.encrypt(@cc, @key)
+      enc = SubstitutionCipher::Caeser.encrypt(@cc.to_s, @key)
       enc.wont_equal @cc.to_s
     end
 
     it 'should decrypt text' do
-      enc = SubstitutionCipher::Caeser.encrypt(@cc, @key)
+      enc = SubstitutionCipher::Caeser.encrypt(@cc.to_s, @key)
       dec = SubstitutionCipher::Caeser.decrypt(enc, @key)
       dec.must_equal @cc.to_s
     end
@@ -23,12 +23,12 @@ describe 'Test card info encryption' do
 
   describe 'Using Permutation cipher' do
     it 'should encrypt card information' do
-      enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
+      enc = SubstitutionCipher::Permutation.encrypt(@cc.to_s, @key)
       enc.wont_equal @cc.to_s
     end
 
     it 'should decrypt text' do
-      enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
+      enc = SubstitutionCipher::Permutation.encrypt(@cc.to_s, @key)
       dec = SubstitutionCipher::Permutation.decrypt(enc, @key)
       dec.must_equal @cc.to_s
     end
