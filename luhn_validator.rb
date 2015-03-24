@@ -13,6 +13,6 @@ module LuhnValidator
     single = nums_a.to_s.chars.map(&:to_i)
     sum = single.inject(:+)
     luhn = sum + checksum
-    luhn%10==0? true : (puts "Usage:  Credit Card number invalid")
+    luhn%10==0? (puts "Usage:  Credit Card number valid, Hooray!") : (puts "Usage:  Credit Card number invalid")
   end
 end
