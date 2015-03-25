@@ -11,9 +11,9 @@ module LuhnValidator
     
   	nums_a.each_with_index do |item, index|
   	 if index.odd?
-  	 	 item.to_i*2>9? result+=((item.to_i*2)-9) : result+=(item.to_i*2)
+  	 	 item*2>9? result+=((item*2)-9) : result+=(item*2)
   	 else
-  		result +=item.to_i
+  		result +=item
   	 end
     end
   	result%10 == 0
