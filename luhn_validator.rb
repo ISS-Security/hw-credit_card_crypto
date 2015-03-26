@@ -7,11 +7,11 @@ module LuhnValidator
     nums_a = number.to_s.chars.map(&:to_i)
     checksum = nums_a.pop
     nums_a.reverse!
-    results = nums_a.map.with_index do |n,i|
-      i.even? ? n*2 : n*1
+    results = nums_a.map.with_index do |n, i|
+      i.even? ? n * 2 : n * 1
     end
     single = results.to_s.chars.map(&:to_i)
     luhn = single.inject(:+) + checksum
-    luhn%10==0? true : false
+    luhn % 10 == 0 ? true : false
   end
 end
