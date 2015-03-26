@@ -26,7 +26,7 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.encrypt(document, key)
-      # TODO: encrypt string using caeser cipher
+      # TODO: encrypt string using a substitution cipher
     end
 
     # Decrypts String document using integer key
@@ -35,7 +35,7 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.decrypt(document, key)
-      # TODO: decrypt string using caeser cipher
+      # TODO: decrypt string using a substitution cipher
     end
   end
 end
