@@ -60,3 +60,8 @@ Finally, make sure it passes all the tests I have also provided:
 
 ## Submission
 Please submit one solution for your team. You may simply submit the HTTP url of the git repository where we can find your solution.
+
+### [Statistics on Credit Card use](http://www.creditcards.com/credit-card-news/credit-card-industry-facts-personal-debt-statistics-1276.php)
+- [Total number of credit card transactions in the United States:](http://www.creditcards.com/credit-card-news/credit-card-industry-facts-personal-debt-statistics-1276.php#ixzz3VSrXbOYz)
+  - 26.2 billion in 2012
+  - 19 billion in 2003
