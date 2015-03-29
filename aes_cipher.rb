@@ -6,6 +6,7 @@ module AesCipher
     #       where iv is the random intialization vector used in AES
     #       and ciphertext is the output of AES encryption
     # NOTE: Use hexadecimal strings for output so that it is screen printable
+    #       Use cipher block chaining mode only!
   end
 
   def self.decrypt(key, aes_crypt)
