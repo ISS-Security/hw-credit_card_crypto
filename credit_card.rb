@@ -22,4 +22,9 @@ class CreditCard
   def to_s
     self.to_json
   end
+
+  # return a new CreditCard object given a serialized (JSON) representation
+  def self.from_s(card_s)
+    # TODO: deserializing a CreditCard object
+  end
 end
