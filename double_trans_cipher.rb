@@ -1,5 +1,5 @@
 module DoubleTranspositionCipher
-  def encrypt(key)
+  def self.encrypt(document, key)
     # TODO: FILL THIS IN!
     ## Suggested steps for double transposition cipher
     # 1. find number of rows/cols such that matrix is almost square
@@ -9,7 +9,7 @@ module DoubleTranspositionCipher
     # 5. return joined cyphertext
   end
 
-  def Decrypt()
+  def self.decrypt(ciphertext, key)
     # TODO: FILL THIS IN!
   end
 end

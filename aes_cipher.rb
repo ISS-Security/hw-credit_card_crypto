@@ -1,7 +1,7 @@
 require 'openssl'
 
 module AesCipher
-  def self.encrypt(key, plaintext)
+  def self.encrypt(document, key)
     # TODO: Return JSON string of array: [iv, ciphertext]
     #       where iv is the random intialization vector used in AES
     #       and ciphertext is the output of AES encryption
@@ -9,7 +9,7 @@ module AesCipher
     #       Use cipher block chaining mode only!
   end
 
-  def self.decrypt(key, aes_crypt)
-    # TODO: decrypt from JSON output of encrypt method above
+  def self.encrypt(aes_crypt, key)
+    # TODO: decrypt from JSON output (aes_crypt) of encrypt method above
   end
 end
