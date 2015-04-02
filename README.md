@@ -42,7 +42,7 @@ Finally, make sure it passes all the tests I have also provided:
 (run the spec file from the root directory of your solution)
 
 ### B. Substitution Ciphers
-Your team will implement two ciphers that we saw in class: the Caeser Cipher and the Permutation Cipher.
+Your team will implement two ciphers that we saw in class: the Caesar Cipher and the Permutation Cipher.
 
 - Implement the `SubstitutionCipher` module in `substitution_cipher.rb`
   - Create encrypt and decrypt methods of both ciphers
@@ -50,7 +50,7 @@ Your team will implement two ciphers that we saw in class: the Caeser Cipher and
     - they all return a string (encrypted or decrypted)
   - Assumptions you may make:
     - All `document` characters are printable ASCII (ord 32-126)
-    - Caeser cipher: there is not need to 'wrap' values -- just add/subtract the key to encrypt/decrypt
+    - Caesar cipher: there is not need to 'wrap' values -- just add/subtract the key to encrypt/decrypt
     - Permutation cipher: assume you can replace with any characters values from 0-127 (ord)
   - Make sure the decrypt method recreates the original document it is given!
 

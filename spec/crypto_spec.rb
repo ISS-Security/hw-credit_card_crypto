@@ -8,15 +8,15 @@ describe 'Test card info encryption' do
     @key = 3
   end
 
-  describe 'Using Caeser cipher' do
+  describe 'Using Caesar cipher' do
     it 'should encrypt card information' do
-      enc = SubstitutionCipher::Caeser.encrypt(@cc, @key)
+      enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
       enc.wont_equal @cc.to_s
     end
 
     it 'should decrypt text' do
-      enc = SubstitutionCipher::Caeser.encrypt(@cc, @key)
-      dec = SubstitutionCipher::Caeser.decrypt(enc, @key)
+      enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
+      dec = SubstitutionCipher::Caesar.decrypt(enc, @key)
       dec.must_equal @cc.to_s
     end
   end

@@ -1,12 +1,12 @@
 module SubstitutionCipher
-  module Caeser
+  module Caesar
     # Encrypts document using key
     # Arguments:
     #   document: String
     #   key: Fixnum (integer)
     # Returns: String
     def self.encrypt(document, key)
-      # TODO: encrypt string using caeser cipher
+      # TODO: encrypt string using caesar cipher
     end
 
     # Decrypts String document using integer key
@@ -15,7 +15,7 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.decrypt(document, key)
-      # TODO: decrypt string using caeser cipher
+      # TODO: decrypt string using caesar cipher
     end
   end
 
