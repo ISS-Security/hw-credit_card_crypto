@@ -67,6 +67,17 @@ Your team must implement the double transposition and AES ciphers we saw in clas
 - Write more tests for these ciphers in `spec/crypto_spec.rb`
   - Can you DRY out all the tests using metaprogramming as we saw in class?
 
+### D. Hashing Credit Cards
+Your team must implement hashing methods for credit card objects. Recall that all objects in Ruby have a `hash` method by default. However, this method does not use the contents of their objects to produce hashes. Furthermore, this hash method cannot produce a cryptographically strong hash.
+
+- Override the default hash: Override the default `hash` method of CreditCard to hash the serialized data of the card. Credit cards with identical information should produce identical hashes. Do not use any cryptographic hashing method here.
+- Create a cryptographic hash: Implement the `secure_hash` method to produce a SHA256 hash (return a hexadecimal string). Credit cards with identical information should produce identical secure hashes.
+- BUT FIRST: Implement the tests in `spec/hash_spec.rb`
+  - make sure they all fail before writing ANY code!
+  - make sure they pass one by one while writing code :)
+- We are coming to the end of this assignment -- please add references in `Gemfile` to all the gems you are using in your code and test files.
+
+
 ## Submission
 Please submit one solution for your team. You may simply submit the HTTP url of the git repository where we can find your solution.
 
