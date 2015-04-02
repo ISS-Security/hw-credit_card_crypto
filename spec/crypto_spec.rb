@@ -33,4 +33,7 @@ describe 'Test card info encryption' do
       dec.must_equal @cc.to_s
     end
   end
+
+  # TODO: Add tests for double transposition and AES ciphers
+  #       Can you DRY out the tests using metaprogramming? (see lecture slide)
 end

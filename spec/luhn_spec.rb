@@ -2,14 +2,23 @@ require_relative '../credit_card'
 require 'minitest/autorun'
 require 'yaml'
 
-card_numbers = YAML.load_file 'spec/test_numbers.yml'
+cards = YAML.load_file 'spec/test_numbers.yml'
 
-card_numbers.each do |mediator, numbers|
-  describe "Test #{mediator} card numbers" do
-    numbers.each do |number|
+cards.each do |name, numbers|
+  describe "HAPPY: Test valid #{name} card numbers" do
+    numbers['valid'].each do |number|
       it "works on card #: #{number}" do
         card = CreditCard.new(number, nil, nil, nil)
         card.validate_checksum.must_equal true
+      end
+    end
+  end
+
+  describe "SAD: Test invalid #{name} card numbers" do
+    numbers['invalid'].each do |number|
+      it "should not work on card #: #{number}" do
+        card = CreditCard.new(number, nil, nil, nil)
+        card.validate_checksum.wont_equal true
       end
     end
   end
