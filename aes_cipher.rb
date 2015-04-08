@@ -9,7 +9,7 @@ module AesCipher
     #       Use cipher block chaining mode only!
   end
 
-  def self.encrypt(aes_crypt, key)
+  def self.decrypt(aes_crypt, key)
     # TODO: decrypt from JSON output (aes_crypt) of encrypt method above
   end
 end
