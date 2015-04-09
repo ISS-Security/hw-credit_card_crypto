@@ -17,10 +17,10 @@ class CreditCard
   # returns json string
   def to_json
     {
-      :number => number,
-      :expiration_date => expiration_date,
-      :owner => owner,
-      :credit_network => credit_network
+      number: number,
+      expiration_date: expiration_date,
+      owner: owner,
+      credit_network: credit_network
      }.to_json
   end
 
@@ -42,7 +42,7 @@ class CreditCard
   # return a cryptographically secure hash
   def hash_secure
     sha256 = OpenSSL::Digest::SHA256.new
-    digest = sha256.digest(self.to_s).unpack("H*")
-
+    digest = sha256.digest(self.to_s).unpack('H*')
+    digest
   end
 end
