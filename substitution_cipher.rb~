@@ -11,7 +11,7 @@ module SubstitutionCipher
        ascii = document.chars.map { |c| c.ord}
 
       # add the key to the numbers in ASCII
-      shifted = ascii.map { |c| if (c + key) < 95 then c+key else (c + key - 95) end}
+      shifted = ascii.map { |c| if (c + key)<95 then c+key else (c +key-95) end}
       
       # return the numbers back to letters, and join them
       return shifted.map { |c| c.chr }.join
@@ -41,6 +41,7 @@ module SubstitutionCipher
       pad = (0..127).to_a.shuffle(random: Random.new(key))
       ciphertext = document.to_s.chars.map  {|c| pad[c.ord].chr}.join
     end
+
     # Decrypts String document using integer key
     # Arguments:
     #   document: String
