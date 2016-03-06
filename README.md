@@ -35,11 +35,15 @@ You will write the algorithm used by financial institutions to check whether a c
   - initialize the instance variables
   - create a hash that converts the instance variables in a [JSON](http://en.wikipedia.org/wiki/JSON) string format
 
-Finally, make sure it passes the `luhn_spec` test that is provided:
+Make sure it passes the `luhn_spec` test that is provided:
 
     $ ruby spec/luhn_spec.rb
 
 (run the spec file from the root directory of your solution)
+
+And bench test the performance of your code by running the bench code:
+
+    $ ruby bench/
 
 ### B. Substitution Ciphers
 Your team will implement two ciphers that we saw in class: the Caesar Cipher and the Permutation Cipher.
