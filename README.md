@@ -3,8 +3,8 @@
 This assignment requires you to try your hand out at a very common error checking (data integrity) algorithm, and also introduces you to very elementary cryptographic algorithms.
 
 ## Retrieving Files
-1. Make sure to setup the git tool as we described in class (see handout). Also, make sure to creat your own RSA keypair and link your public key to Github. You can then clone any public project from Github onto your local machine.
-2. Fork this project on Github (a copy is created in your Github account)
+1. Make sure to setup the git tool as we described in class (see online handout on 'Git Version Control'). Also, make sure to create your own RSA keypair and link your public key to Github. You can then clone any public project from Github onto your local machine.
+2. Fork this project on Github (a copy is created in your Github account) using the 'Fork' button
 3. Clone *your copy* of the forked project onto your local machine:
 `$ git clone git@github.com:[your_username]/hw_3-credit_card_crypto.git`
 4. Use the 'bundle' gem (which you should have installed earlier) to install all gems required for this assignment (listed in the `Gemfile`) onto your local machine: `$ bundle install`
@@ -24,7 +24,7 @@ Remember that all members of your team should attempt each part of the assignmen
 
 ## Requirements
 
-This project is in two parts. One part is about the Luhn algorithm for credit card number validation. The other part uses the basic crypto algorithms we saw in class.
+This project is in several parts (A-D). Make sure you ONLY do the part that is relevant to this week.
 
 ### A. Luhn Algorithm
 You will write the algorithm used by financial institutions to check whether a credit card number is valid or not, by checking its last digit (checksum). This is done by using the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm). You can see this algorithm in action at any [online Luhn algorithm calculator](http://planetcalc.com/2464/).
@@ -35,7 +35,7 @@ You will write the algorithm used by financial institutions to check whether a c
   - initialize the instance variables
   - create a hash that converts the instance variables in a [JSON](http://en.wikipedia.org/wiki/JSON) string format
 
-Finally, make sure it passes all the tests I have also provided:
+Finally, make sure it passes the `luhn_spec` test that is provided:
 
     $ ruby spec/luhn_spec.rb
 
