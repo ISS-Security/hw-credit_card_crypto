@@ -8,8 +8,8 @@ module LuhnValidator
     sum = 0
     nums_a.each_slice(2) do |odd, even|
       sum += odd if odd
-      sum += even>4 ? (even*2)-9 : (even*2) if even
+      sum += even > 4 ? (even * 2) - 9 : even * 2 if even
     end
-    return sum % 10 == 0
+    sum % 10 == 0
   end
 end

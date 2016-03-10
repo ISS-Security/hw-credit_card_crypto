@@ -24,7 +24,7 @@ class CreditCard
       expiration_date: @expiration_date,
       owner: @owner,
       credit_network: @credit_network
-     }.to_json
+    }.to_json
   end
 
   # returns all card information as single string
