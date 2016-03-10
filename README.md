@@ -43,7 +43,7 @@ Make sure it passes the `luhn_spec` test that is provided:
 
 And bench test the performance of your code by running the bench code:
 
-    $ ruby bench/
+    $ ruby bench/luhn_bench.rb
 
 ### B. Substitution Ciphers
 Your team will implement two ciphers that we saw in class: the Caesar Cipher and the Permutation Cipher.
