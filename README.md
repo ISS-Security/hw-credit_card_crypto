@@ -52,13 +52,17 @@ Your team will implement two ciphers that we saw in class: the Caesar Cipher and
   - Create encrypt and decrypt methods of both ciphers
     - they all take `document` string and `key` integer
     - they all return a string (encrypted or decrypted)
-  - Assumptions you may make:
-    - All `document` characters are printable ASCII (ord 32-126)
-    - Caesar cipher: there is not need to 'wrap' values -- just add/subtract the key to encrypt/decrypt
-    - Permutation cipher: assume you can replace with any characters values from 0-127 (ord)
+  - Hints/Assumptions you may make:
+    - All plaintext `document` characters are printable ASCII (ord 32-126)
+    - Caesar cipher: there is not need to 'wrap' values -- just add/subtract the key to encrypt/decrypt (its ok if the resulting ordinal values are greater than 127)
+    - Permutation cipher:
+      - assume you can replace with any characters values from 0-127 (ord)
+      - start by creating a lookup table of characters by randomly "shuffling" the numbers `(0..127)` using the key
+        - See the `Array.shuffle(random: rng)` method
+        - See the `Random.new(seed)` method
   - Make sure the decrypt method recreates the original document it is given!
 
-Finally, make sure it passes all the tests I have also provided:
+Finally, make sure it passes all the tests you are provided:
 
       $ ruby spec/crypto_spec.rb
 
