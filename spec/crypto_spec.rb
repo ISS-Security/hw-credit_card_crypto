@@ -12,6 +12,7 @@ describe 'Test card info encryption' do
     it 'should encrypt card information' do
       enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
       enc.wont_equal @cc.to_s
+      enc.wont_be_nil
     end
 
     it 'should decrypt text' do
@@ -25,6 +26,7 @@ describe 'Test card info encryption' do
     it 'should encrypt card information' do
       enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
       enc.wont_equal @cc.to_s
+      enc.wont_be_nil
     end
 
     it 'should decrypt text' do
