@@ -1,0 +1,27 @@
+---
+2:
+  number: '4539075978941247'
+  date: 'Mar-30-2020'
+  name: 'Soumya Ray'
+  type: 'Visa'
+3:
+  number: '5192234226081802'
+  date: 'Jul-03-2019'
+  name: 'Jherez Taylor'
+  type: 'American Express'
+5:
+  number: '6011732236366813'
+  date: 'May-29-2027'
+  name: 'Nicholas Danks'
+  type: 'Discover'
+7:
+  number: '374842548357378'
+  date: 'Jan-24-2025'
+  name: 'Renaud Jollet De Lorenzo'
+  type: 'Mastercard'
+11:
+  number: '4716745052999353'
+  date: 'Fev-25-2018'
+  name: 'Zoe Poulain'
+  type: 'Visa'
+
