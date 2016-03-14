@@ -1,15 +1,29 @@
 module DoubleTranspositionCipher
+  def self.row_exchange(matrix, random_key)
+      matrix.each_with_index.map {|row,i| [random_key[i],row]}.sort.map {|k,v| v}
+  end  
+  
+  def self.row_unexchange(matrix, random_key)
+      matrix.each_with_index.map {|row,i| [random_key.index(i),row]}.sort.map {|k,v| v}
+  end
+
   def self.encrypt(document, key)
-    # TODO: FILL THIS IN!
-    ## Suggested steps for double transposition cipher
-    # 1. find number of rows/cols such that matrix is almost square
-    # 2. break plaintext into evenly sized blocks
-    # 3. sort rows in predictibly random way using key as seed
-    # 4. sort columns of each row in predictibly random way
-    # 5. return joined cyphertext
+    matrix_length = Math.sqrt(document.length).ceil
+    random_key = Array(0...matrix_length).shuffle(random: Random.new(key)) 
+    document = document + ' '*(matrix_length**2-document.length)
+    matrix = document.chars.each_slice(matrix_length).to_a
+    row_sorted_matrix = row_exchange(matrix,random_key)
+    col_sorted_matrix = row_exchange(row_sorted_matrix.transpose,random_key).transpose
+    col_sorted_matrix.map {|row| row.join}.join
   end
 
   def self.decrypt(ciphertext, key)
-    # TODO: FILL THIS IN!
+    matrix_length = Math.sqrt(ciphertext.length).ceil
+    random_key = Array(0...matrix_length).shuffle(random: Random.new(key)) 
+    ciphertext = ciphertext + ' '*(matrix_length**2-ciphertext.length)
+    matrix = ciphertext.chars.each_slice(matrix_length).to_a
+    col_unsorted_matrix = row_unexchange(matrix.transpose,random_key).transpose
+    row_unsorted_matrix = row_unexchange(col_unsorted_matrix, random_key)
+    row_unsorted_matrix.map {|row| row.join}.join.rstrip
   end
 end
