@@ -45,8 +45,8 @@ And bench test the performance of your code by running the bench code:
 
     $ ruby bench/luhn_bench.rb
 
-### B. Substitution Ciphers
-Your team will implement three ciphers that we saw in class: the Caesar Cipher, Permutation Cipher and Double Transposition Cipher.
+### B. Substitution and Transposition Ciphers
+Your team will implement three ciphers that we saw in class: the Caesar Cipher, Permutation Cipher and Double Transposition Cipher. These ciphers represent the state of the art of cryptography from antiquity till World War II.
 
 - Implement the `SubstitutionCipher` module in `substitution_cipher.rb`
   - Create encrypt and decrypt methods of both ciphers
@@ -61,7 +61,7 @@ Your team will implement three ciphers that we saw in class: the Caesar Cipher, 
       - See the `Array.shuffle(random: rng)` method
       - See the `Random.new(seed)` method
 - Implement the DoubleTranspositionCipher in `double_trans_cipher.rb` (more hints in source file)
-  - Write your own tests for the double transposition cipher `spec/crypto_spec.rb`:  Try writing these tests before coding!
+  - Write your own tests for the double transposition cipher in `spec/crypto_spec.rb`:  Try writing these tests before coding!
   - Can you DRY out all the tests using metaprogramming as we saw in class? (DRY = Do not Repeat Yourself in code)
 
 While coding, make sure it passes all the tests you are provided:
@@ -73,13 +73,15 @@ Before submission, make sure it passes the style guide suggested by Rubocop:
       $ rubocop <your_ruby_file.rb>
 
 ### C. Advanced Crypto and Hashing
-Your team must implement the AES cipher and Hashing.
+This week, we enter the world of modern cryptography. Your team must *use libraries for* the AES cipher and SHA hashing algorithms. We *should not implement* modern ciphers ourselves for production purposes.
 
-#### C.1. AES Cipher:
+#### C.1. AES 256 Cipher:
 Implement a modern cryptographic encryption method:
 - `AesCipher` in `aes_cipher.rb`
-- Write your own tests for the double transposition cipher `spec/crypto_spec.rb`:  Try writing these tests before coding!
-- Can you DRY out all the tests using metaprogramming as we saw in class? (DRY = Do not Repeat Yourself in code)
+- Write your own tests for the AES cipher in `spec/crypto_spec.rb`:
+  - make sure your implemented tests *all fail before writing* any code!
+  - make sure they pass *one-by-one* while writing code :)
+  - Can you DRY out all the tests using metaprogramming?
 
 #### C.2. Hashing
 Your team must implement hashing methods for credit card objects. Recall that all objects in Ruby have a `hash` method by default. However, this method does not use the contents of their objects to produce hashes. Furthermore, this hash method cannot produce a cryptographically strong hash.
@@ -87,18 +89,18 @@ Your team must implement hashing methods for credit card objects. Recall that al
 - Override the default hash: Override the default `hash` method of CreditCard to hash the serialized data of the card. Credit cards with identical information should produce identical hashes. Do not use any cryptographic hashing method here.
 - Create a cryptographic hash: Implement the `secure_hash` method to produce a SHA256 hash (return a hexadecimal string). Credit cards with identical information should produce identical secure hashes.
 - BUT FIRST: look at the hashing test specs in `spec/hash_spec.rb`
-  - *Implement all the tests* that are shown (you are welcome to add your own as well)
+  - *Implement all the test descriptions* (you are welcome to add your own as well)
   - make sure your implemented tests *all fail* before writing *any* code!
   - make sure they pass *one-by-one* while writing code :)
 - We are coming to the end of this assignment -- time to do some cleanup:
   - Add references in `Gemfile` to all the gems you are using in your code and test files.
-  - run the `rubocop` gem on your code to see if your code style is appropriate
-
+    (see http://bundler.io for what to put in a `Gemfile`)
+  - run `rubocop` on all your code to see if your code style is appropriate
 
 ## Submission
 Please submit one solution for your team. You may simply submit the HTTP url of the git repository where we can find your solution.
 
-### [Statistics on Credit Card use](http://www.creditcards.com/credit-card-news/credit-card-industry-facts-personal-debt-statistics-1276.php)
+### Statistics on Credit Card use
 - [Total number of credit card transactions in the United States:](http://www.creditcards.com/credit-card-news/credit-card-industry-facts-personal-debt-statistics-1276.php#ixzz3VSrXbOYz)
   - 26.2 billion in 2012
   - 19 billion in 2003

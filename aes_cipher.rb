@@ -5,7 +5,7 @@ module AesCipher
     # TODO: Return JSON string of array: [iv, ciphertext]
     #       where iv is the random intialization vector used in AES
     #       and ciphertext is the output of AES encryption
-    # NOTE: Use hexadecimal strings for output so that it is screen printable
+    # NOTE: Use base64 for ciphertext so that it is screen printable
     #       Use cipher block chaining mode only!
   end
 
