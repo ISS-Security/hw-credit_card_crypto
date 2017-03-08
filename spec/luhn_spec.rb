@@ -2,7 +2,7 @@ require_relative '../credit_card'
 require 'minitest/autorun'
 require 'yaml'
 
-cards = YAML.load_file 'spec/test_numbers.yml'
+cards = YAML.load_file 'test_numbers.yml'
 
 cards.each do |name, numbers|
   describe "HAPPY: Test valid #{name} card numbers" do
