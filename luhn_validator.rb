@@ -11,12 +11,8 @@ module LuhnValidator
     else
       nums_a.map!.with_index { |e, i| i.even? ? e * 2 : e * 1 }
     end
-    nums_a.map! { |a| a > 9 ? sum_digits(a) : a * 1 }
+    nums_a.map! { |a| a > 9 ? a - 9 : a }
     check_sum == (nums_a.sum * 9) % 10
-  end
-  # TODO: use the integers in nums_a to validate its last check digitend
-
-  def sum_digits(var)
-  newvar = var.to_s.split('').map(&:to_i).inject { |e, f| e + f }
+    # TODO: use the integers in nums_a to validate its last check digitend
   end
 end
