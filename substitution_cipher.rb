@@ -8,6 +8,7 @@ module SubstitutionCipher
 
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      document = document.to_s
       encript_doc = document.split('').map do |e|
         (e.ord + key).chr
       end
@@ -37,8 +38,9 @@ module SubstitutionCipher
     def self.encrypt(document, key)
 
       # TODO: encrypt string using a permutation cipher
-      key_map = (0..127).to_a.shuffle(random:Random.new(key))
 
+      key_map = (0..127).to_a.shuffle(random:Random.new(key))
+      document = document.to_s
       encript_doc = document.split('').map do |e|
         #map this character
         key_map[e.ord].chr
