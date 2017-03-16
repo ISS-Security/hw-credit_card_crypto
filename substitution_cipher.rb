@@ -5,8 +5,14 @@ module SubstitutionCipher
     #   document: String
     #   key: Fixnum (integer)
     # Returns: String
+
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      document = document.to_s
+      encript_doc = document.split('').map do |e|
+        (e.ord + key).chr
+      end
+      encript_doc = encript_doc.join
     end
 
     # Decrypts String document using integer key
@@ -16,6 +22,10 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      decript_doc = document.split('').map do |e|
+        (e.ord - key).chr
+      end
+      decript_doc = decript_doc.join
     end
   end
 
@@ -26,7 +36,16 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.encrypt(document, key)
+
       # TODO: encrypt string using a permutation cipher
+
+      key_map = (0..127).to_a.shuffle(random:Random.new(key))
+      document = document.to_s
+      encript_doc = document.split('').map do |e|
+        #map this character
+        key_map[e.ord].chr
+      end
+      encript_doc = encript_doc.join
     end
 
     # Decrypts String document using integer key
@@ -35,7 +54,13 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.decrypt(document, key)
-      # TODO: decrypt string using a permutation cipher
+      # TODO: decrypt string using a permutation cipher/
+      key_map = (0..127).to_a.shuffle(random:Random.new(key))
+      decript_doc = document.split('').map do |e|
+        (key_map.index(e.ord)).chr
+      end
+      decript_doc = decript_doc.join
+
     end
   end
 end
