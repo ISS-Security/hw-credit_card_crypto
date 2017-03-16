@@ -5,8 +5,16 @@ module SubstitutionCipher
     #   document: String
     #   key: Fixnum (integer)
     # Returns: String
+    az_map = []
+    az_map = 26.times do |i|
+      az_map.push( ('a'.ord + i).chr )
+    end
+
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      document.split('').map do |e|
+        az_map[az_map.index(e) - key]
+      end
     end
 
     # Decrypts String document using integer key
@@ -16,6 +24,11 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      document.split('').map do |e|
+        idx = az_map.index(e) + key
+        idx = idx > 25 ? idx-26 : idx
+        az_map[idx]
+      end
     end
   end
 
