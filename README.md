@@ -73,15 +73,19 @@ Before submission, make sure it passes the style guide suggested by Rubocop:
       $ rubocop <your_ruby_file.rb>
 
 ### C. Advanced Crypto and Hashing
-This week, we enter the world of modern cryptography. Your team must *use libraries for* the AES cipher and SHA hashing algorithms. We *should not implement* modern ciphers ourselves for production purposes.
+This week, we enter the world of modern cryptography. Your team must *use the RbNacl library* for the ModernSymmetricCipher cipher and SHA256 hashing algorithms. We should not implement modern ciphers ourselves for production purposes.
 
-#### C.1. AES 256 Cipher:
+#### C.1. ModernSymmetricCipher:
 Implement a modern cryptographic encryption method:
-- `AesCipher` in `aes_cipher.rb`
-- Write your own tests for the AES cipher in `spec/crypto_spec.rb`:
+- `ModernSymmetricCipher` in `sk_cipher.rb`
+- Write your own tests for ModernSymmetricCipher in `spec/crypto_spec.rb`:
   - make sure your implemented tests *all fail before writing* any code!
   - make sure they pass *one-by-one* while writing code :)
   - Can you DRY out all the tests using metaprogramming?
+- Note that you are required to return serialized data as Base64:
+  - Use `require 'base64'` to use Ruby's Base64 gem
+  - Serialize data using: `Base64.encode64(data)` to get a base 64 string
+  - Deserialize using: `Base64.decode64(b64_str)`
 
 #### C.2. Hashing
 Your team must implement hashing methods for credit card objects. Recall that all objects in Ruby have a `hash` method by default. However, this method does not use the contents of their objects to produce hashes. Furthermore, this hash method cannot produce a cryptographically strong hash.
@@ -99,8 +103,3 @@ Your team must implement hashing methods for credit card objects. Recall that al
 
 ## Submission
 Please submit one solution for your team. You may simply submit the HTTP url of the git repository where we can find your solution.
-
-### Statistics on Credit Card use
-- [Total number of credit card transactions in the United States:](http://www.creditcards.com/credit-card-news/credit-card-industry-facts-personal-debt-statistics-1276.php#ixzz3VSrXbOYz)
-  - 26.2 billion in 2012
-  - 19 billion in 2003
