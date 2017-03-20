@@ -24,7 +24,11 @@ describe 'Test hashing requirements' do
     end
 
     describe 'Check for unique hashes' do
-      # TODO: Check that each card produces a different hash than other cards
+      it 'given a bunch of unique cards it must return nill' do
+        hashed_cards = []
+        cards.each_with_index { |card, i| hashed_cards[i] = card.hash }
+        hashed_cards.uniq!.nil?.must_equal true
+      end
     end
   end
 
@@ -41,7 +45,11 @@ describe 'Test hashing requirements' do
     end
 
     describe 'Check for unique hashes' do
-      # TODO: Check that each card produces a different hash than other cards
+      it 'given unique cards it should not return the same secured hash for any' do
+        secure_hashed_cards = []
+        cards.each_with_index { |card, i| secure_hashed_cards[i] = card.hash_secure }
+        secure_hashed_cards.uniq!.nil?.must_equal true
+      end
     end
 
     describe 'Check regular hash not same as cryptographic hash' do
