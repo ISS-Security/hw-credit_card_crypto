@@ -1,15 +1,16 @@
 require_relative './luhn_validator.rb'
+#require_relative './sk_cipher.rb'
 require 'json'
+require 'base64'
 
 class CreditCard
   # this is a class for credit card stuff
   # TODO: mixin the LuhnValidator using an 'include' statement
-  include LuhnValidator
+  #include LuhnValidator
   # instance variables with automatic getter/setter methods
   attr_accessor :number, :expiration_date, :owner, :credit_network
 
   def initialize(number, expiration_date, owner, credit_network)
-    # TODO: initialize the instance variables listed above
     @number = number
     @expiration_date = expiration_date
     @owner = owner
@@ -20,8 +21,8 @@ class CreditCard
   def to_json
     {
       # TODO: setup the hash with all instance vairables to serialize into json
-      'number' => @cc_number, 'expiration_date' => @exp_date,
-      'owner' => @user, 'credit_network' => @bank_network
+      :number => @number, :expiration_date => @expiration_date,
+      :owner => @owner, :credit_network => @credit_network
     }.to_json
   end
 
@@ -37,6 +38,8 @@ class CreditCard
 
   # return a hash of the serialized credit card object
   def hash
+    Base64.encode64(self.to_s).hash
+    #should work but doesnt all the time look into crc
     # TODO: implement this method
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
