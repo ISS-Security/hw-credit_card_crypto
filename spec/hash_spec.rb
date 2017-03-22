@@ -11,7 +11,9 @@ card_details = [
     name: 'Lee Chen', net: 'Mastercard' }
 ]
 
-cards = card_details.map { |c| CreditCard.new(c[:num], c[:exp], c[:name], c[:net]) }
+cards = card_details.map do |c|
+  CreditCard.new(c[:num], c[:exp], c[:name], c[:net])
+end
 
 describe 'Test hashing requirements' do
   describe 'Test regular hashing' do
@@ -48,9 +50,11 @@ describe 'Test hashing requirements' do
     end
 
     describe 'Check for unique hashes' do
-      it 'given unique cards it should not return the same secured hash for any' do
+      it 'given unique cards, should not return same secured hash for any' do
         secure_hashed_cards = []
-        cards.each_with_index { |card, i| secure_hashed_cards[i] = card.hash_secure }
+        cards.each_with_index do |card, i|
+          secure_hashed_cards[i] = card.hash_secure
+        end
         secure_hashed_cards.uniq!.nil?.must_equal true
       end
     end
