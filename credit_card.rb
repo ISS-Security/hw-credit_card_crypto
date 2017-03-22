@@ -1,9 +1,8 @@
 require_relative './luhn_validator.rb'
-#require_relative './sk_cipher.rb'
 require 'rbnacl/libsodium'
 require 'json'
 require 'base64'
-
+# this is a credit card class yay
 class CreditCard
   # TODO: mixin the LuhnValidator using an 'include' statement
   include LuhnValidator
@@ -17,14 +16,13 @@ class CreditCard
     @expiration_date = expiration_date
     @owner = owner
     @credit_network = credit_network
-    @hash_attr = Hash.new
   end
 
   # returns json string
   def to_json
     {
       # TODO: setup the hash with all instance vairables to serialize into json
-      :number => @number, :expiration_date => @expiration_date,
+      number => @number, :expiration_date => @expiration_date,
       :owner => @owner, :credit_network => @credit_network
     }.to_json
   end
@@ -41,8 +39,8 @@ class CreditCard
 
   # return a hash of the serialized credit card object
   def hash
-    Base64.encode64(self.to_s).hash
-    #should work but doesnt all the time look into crc
+    Base64.encode64(to_s).hash
+    # should work but doesnt all the time look into crc
     # TODO: implement this method
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
@@ -51,7 +49,7 @@ class CreditCard
 
   # return a cryptographically secure hash
   def hash_secure
-    base64_str = Base64.encode64(self.to_s)
+    base64_str = Base64.encode64(to_s)
     RbNaCl::Hash.sha256(base64_str)
     # TODO: implement this method
     #   - Use sha256 from openssl to create a cryptographically secure hash.
