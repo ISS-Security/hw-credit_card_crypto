@@ -4,17 +4,19 @@ require 'json'
 require 'base64'
 
 class CreditCard
-  # this is a class for credit card stuff
   # TODO: mixin the LuhnValidator using an 'include' statement
-  #include LuhnValidator
+  include LuhnValidator
   # instance variables with automatic getter/setter methods
   attr_accessor :number, :expiration_date, :owner, :credit_network
+  attr_accessor :hash_attr
 
   def initialize(number, expiration_date, owner, credit_network)
+    # TODO: initialize the instance variables listed above
     @number = number
     @expiration_date = expiration_date
     @owner = owner
     @credit_network = credit_network
+    @hash_attr = Hash.new
   end
 
   # returns json string
