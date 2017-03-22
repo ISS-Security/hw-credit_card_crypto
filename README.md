@@ -84,8 +84,8 @@ Implement a modern cryptographic encryption method:
   - Can you DRY out all the tests using metaprogramming?
 - Note that you are required to return serialized data as Base64:
   - Use `require 'base64'` to use Ruby's Base64 gem
-  - Serialize data using: `Base64.encode64(data)` to get a base 64 string
-  - Deserialize using: `Base64.decode64(b64_str)`
+  - Serialize data using: `Base64.strict_encode64(data)` to get a base 64 string
+  - Deserialize using: `Base64.strict_decode64(b64_str)`
 
 #### C.2. Hashing
 Your team must implement hashing methods for credit card objects. Recall that all objects in Ruby have a `hash` method by default. However, this method does not use the contents of their objects to produce hashes. Furthermore, this hash method cannot produce a cryptographically strong hash.

@@ -10,7 +10,7 @@ module ModernSymmetricCipher
     #       Use base64 for ciphertext so that it is sendable as text
   end
 
-  def self.decrypt(aes_crypt, key)
+  def self.decrypt(encrypted_cc, key)
     # TODO: Decrypt from encrypted message above
     #       Expect Base64 encrypted message and Base64 key
   end

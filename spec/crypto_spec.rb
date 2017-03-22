@@ -37,7 +37,7 @@ describe 'Test card info encryption' do
       dec.must_equal @cc.to_s
     end
   end
-
+  
   describe 'Using Double transposition cipher' do
     it 'should encrypt card information' do
       enc = DoubleTranspositionCipher.encrypt(@cc, @key)
@@ -51,4 +51,5 @@ describe 'Test card info encryption' do
       dec.must_equal @cc.to_s
     end
   end
+
 end
