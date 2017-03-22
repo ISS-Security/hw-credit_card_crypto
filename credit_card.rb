@@ -1,5 +1,6 @@
 require_relative './luhn_validator.rb'
 #require_relative './sk_cipher.rb'
+require 'rbnacl/libsodium'
 require 'json'
 require 'base64'
 
@@ -50,6 +51,8 @@ class CreditCard
 
   # return a cryptographically secure hash
   def hash_secure
+    base64_str = Base64.encode64(self.to_s)
+    RbNaCl::Hash.sha256(base64_str)
     # TODO: implement this method
     #   - Use sha256 from openssl to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
