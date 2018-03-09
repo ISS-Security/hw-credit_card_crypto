@@ -5,8 +5,8 @@ Benchmark.bm(15) do |bench|
   n = 200_000
   card_number_length = 16
 
-  card_numbers = n.times.map do
-    card_number_length.times.map { Random.rand(10).to_s }.join
+  card_numbers = Array.new(n) do
+    Array.new(card_number_length) { Random.rand(10).to_s }.join
   end
 
   bench.report('luhn_benchmark') do

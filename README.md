@@ -24,12 +24,14 @@ Remember that all members of your team should attempt each part of the assignmen
 
 ## Requirements
 
-This project is in several parts (A-D). Make sure you ONLY do the part that is relevant to this week.
+This project is in several parts. Make sure you ONLY do the part that is relevant to this week.
 
 ### A. Luhn Algorithm
 You will write the algorithm used by financial institutions to check whether a credit card number is valid or not, by checking its last digit (checksum). This is done by using the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm). You can see this algorithm in action at any [online Luhn algorithm calculator](http://planetcalc.com/2464/).
 
-1. Implement the file called `luhn_validator.rb`. There is one method you must fill out, called `validate_checksum()`. It must check a credit card number and return (`true`/`false`) whether the last checksum digit is correct.
+1. Implement the file called `luhn_validator.rb`
+  - There is one method you must fill out, called `validate_checksum()`. It must check a credit card number and return (`true`/`false`) whether the last checksum digit is correct.
+  - This week, try to make your code more readable rather than emphasizing performance
 2. Implement the file called `credit_card.rb` (see TODO comments):
   - mixin the LuhnValidator
   - initialize the instance variables
