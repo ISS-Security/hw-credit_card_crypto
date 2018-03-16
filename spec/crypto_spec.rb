@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 require_relative '../credit_card'
 require_relative '../substitution_cipher'
 require 'minitest/autorun'
 
 describe 'Test card info encryption' do
   before do
-    @cc = CreditCard.new('4916603231464963', 'Mar-30-2020', 'Soumya Ray', 'Visa')
+    @cc = CreditCard.new('4916603231464963', 'Mar-30-2020',
+                         'Soumya Ray', 'Visa')
     @key = 3
   end
 

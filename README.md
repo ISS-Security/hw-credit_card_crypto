@@ -56,7 +56,7 @@ Your team will implement three ciphers that we saw in class: the Caesar Cipher, 
     - all methods take a positive `key` integer
     - all methods return a string (encrypted or decrypted)
     - Make sure the decrypt method recreates the original document given before encryption!
-  - Caesar cipher: there is not need to 'wrap' values -- just add/subtract the key to encrypt/decrypt (its ok if the resulting ordinal values are greater than 127)
+  - Caesar cipher: there is no need to 'wrap' values -- just add/subtract the key to encrypt/decrypt (its ok if the resulting ordinal values are greater than 127)
   - Permutation cipher:
     - assume you can replace with any characters values from 0-127 (ord)
     - start by creating a lookup table of characters by randomly "shuffling" the numbers `(0..127)` using the key
