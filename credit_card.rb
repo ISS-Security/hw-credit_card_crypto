@@ -4,6 +4,7 @@ require 'json'
 class CreditCard
   # TODO: mixin the LuhnValidator using an 'include' statement
   include LuhnValidator
+  # include LuhnValidator's functionalities
   # instance variables with automatic getter/setter methods
   attr_accessor :number, :expiration_date, :owner, :credit_network
   
