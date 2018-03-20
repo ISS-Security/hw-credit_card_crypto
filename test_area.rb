@@ -11,12 +11,16 @@ def self.encrypt(document, key)
     # 2. break plaintext into evenly sized blocks
     chunks = text.each_slice(matrix_size).to_a
     print chunks
-    
+    puts 
     # 3. sort rows in predictibly random way using key as seed
-    rows = (0..chunks.size).to_a.shuffle(random: Random.new(key.to_i))
-    puts rows 
+    rows = (0..chunks.size-1).to_a.shuffle(random: Random.new(key.to_i))
+    print rows 
+    puts 
+
     # 4. sort columns of each row in predictibly random way
-    
+    columns = (0..chunks[0].length-1).to_a.shuffle(random: Random.new(key.to_i))
+    print columns 
+
     # 5. return joined cyphertext
 end
 
