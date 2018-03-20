@@ -1,6 +1,5 @@
-
 def self.encrypt(document, key)
-    # TODO: FILL THIS IN!
+    TODO: FILL THIS IN!
     ## Suggested steps for double transposition cipher
     # 1. find number of rows/cols such that matrix is almost square
     text = document.split('')
@@ -16,12 +15,33 @@ def self.encrypt(document, key)
     rows = (0..chunks.size-1).to_a.shuffle(random: Random.new(key.to_i))
     print rows 
     puts 
-
+    
+    row_chunk = []
+    chunks.each_with_index do |element, index|
+      row_chunk << chunks[rows[index]]
+    end 
+    print row_chunk 
+    puts
+    puts 
+    
     # 4. sort columns of each row in predictibly random way
     columns = (0..chunks[0].length-1).to_a.shuffle(random: Random.new(key.to_i))
-    print columns 
+    col_chunk = Array.new(matrix_size){Array.new(matrix_size)}
 
+    for i in 0..chunks[0].length-1 do
+       until row_chunk[i].length == chunks[0].length
+         row_chunk[i] << "*" 
+       end 
+       row_chunk[i].each_with_index do |element,index|
+       col_chunk[i][index] = row_chunk[i][rows[index]]
+      end
+    end
+
+    puts 
+    print col_chunk
+    
     # 5. return joined cyphertext
+   col_chunk.join.tr('*','')
 end
 
 self.encrypt("mynameisorison","ori")
