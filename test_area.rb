@@ -11,7 +11,7 @@ def self.encrypt(document, key)
 
     # 2. break plaintext into evenly sized blocks
     chunks = text.each_slice(3).to_a
-    chunks.pad(matrix_size*matrix_size,nil)
+    
     print chunks
     
     # 3. sort rows in predictibly random way using key as seed
