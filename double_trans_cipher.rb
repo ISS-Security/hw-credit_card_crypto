@@ -1,6 +1,6 @@
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
-    TODO: FILL THIS IN!
+    #TODO: FILL THIS IN!
     ## Suggested steps for double transposition cipher
     # 1. find number of rows/cols such that matrix is almost square
     text = document.split('')
