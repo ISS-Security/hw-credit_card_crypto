@@ -3,6 +3,8 @@ module DoubleTranspositionCipher
     # TODO: FILL THIS IN!
     ## Suggested steps for double transposition cipher
     # 1. find number of rows/cols such that matrix is almost square
+    text = document.to_s
+    text.size 
     # 2. break plaintext into evenly sized blocks
     # 3. sort rows in predictibly random way using key as seed
     # 4. sort columns of each row in predictibly random way
