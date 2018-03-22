@@ -35,7 +35,7 @@ module SubstitutionCipher
        generation = (0..127).to_s.shuffle(random: Random.new(key))
        document.collect { |x| generation.at(x.ord).chr).join
     end
-    end
+    
 
     # Decrypts String document using integer key
     # Arguments:
