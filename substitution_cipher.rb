@@ -31,6 +31,10 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using a permutation cipher
+       document = document.to_s.chars
+       generation = (0..127).to_s.shuffle(random: Random.new(key))
+       document.collect { |x| generation.at(x.ord).chr).join
+    end
     end
 
     # Decrypts String document using integer key
@@ -40,6 +44,10 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using a permutation cipher
+      document = document.to_s.chars
+       generation = (0..127).to_s.shuffle(random: Random.new(key))
+       document.collect { |x| generation.index(x.ord).chr).join
+    end
     end
   end
 end
