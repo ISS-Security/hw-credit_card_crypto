@@ -5,8 +5,11 @@ module SubstitutionCipher
     #   document: String
     #   key: Fixnum (integer)
     # Returns: String
+    @alphabet = ('a'..'z').to_a.join
     def self.encrypt(document, key)
-      # TODO: encrypt string using caesar cipher
+      i = key % @alphabet.size 
+      encrypt = @alphabet[i..-1] + @alphabet[0...i]
+      document.tr(@alphabet, encrypt)
     end
 
     # Decrypts String document using integer key
@@ -15,10 +18,11 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.decrypt(document, key)
-      # TODO: decrypt string using caesar cipher
+      i = key % @alphabet.size 
+      encrypt = @alphabet[i..-1] + @alphabet[0...i]
+      document.tr(encrypt, @alphabet)
     end
   end
-
   module Permutation
     # Encrypts document using key
     # Arguments:
