@@ -8,7 +8,8 @@ This assignment requires you to try your hand out at a very common error checkin
 2. Fork this project on Github (a copy is created in your Github account) using the 'Fork' button
 3. Clone *your copy* of the forked project onto your local machine:
 `git clone git@github.com:[your_username]/hw_3-credit_card_crypto.git`
-4. Use the 'bundle' gem (which you should have installed earlier) to install all gems required for this assignment (listed in the `Gemfile`) onto your local machine: `bundle install`
+4. Add the `bundler-audit` gem to your list of gems in `Gemfile`; run `bundle install` to install it
+5. Use the 'bundle' gem (which you should have installed earlier) to install all gems required for this assignment (listed in the `Gemfile`) onto your local machine: `bundle install`
 
 ## Working on Assignment
 
@@ -28,11 +29,16 @@ Submission instructions will be provided separately by your instructor. But befo
 
       rubocop <your_ruby_file.rb>
 
+Always run a final audit of your gems for vulnerabilities:
+
+      bundle-audit check --update
+
 ## Requirements
 
 This project is in several parts. Make sure you ONLY do the part that is relevant to this week.
 
 ### A. Luhn Algorithm
+<!-- markdownlint-disable ol-prefix -->
 
 You will write the algorithm used by financial institutions to check whether a credit card number is valid or not, by checking its last digit (checksum). This is done by using the [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm). You can see this algorithm in action at any [online Luhn algorithm calculator](http://planetcalc.com/2464/).
 
@@ -87,7 +93,7 @@ While coding, make sure it passes all the tests you are provided:
 
 This week, we enter the world of modern cryptography. Your team must *use the RbNacl library* for the ModernSymmetricCipher cipher and SHA256 hashing algorithms. We should not implement modern ciphers ourselves for production purposes.
 
-#### C.1. ModernSymmetricCipher:
+#### C.1. ModernSymmetricCipher
 
 Implement a modern cryptographic encryption method:
 
