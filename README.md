@@ -63,7 +63,7 @@ And bench test the performance of your code by running the bench code:
 
     ruby bench/luhn_bench.rb
 
-3. Submit: Remember that all members of your team should attempt each part of the assignment and push your individual work to Github. *You may work together* and share code and ideas. However, *only each person should submit their own solution* (see submission details at bottom).
+3. Submit: Remember that all members of your team should attempt each part of the assignment and push your individual work to Github. *You may work together* and share code and ideas. However, *only each person should submit their own solution* (see submission details [here](README.md#submission)).
 
 ### B. Substitution and Transposition Ciphers
 
