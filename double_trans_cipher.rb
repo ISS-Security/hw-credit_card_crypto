@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
     # TODO: FILL THIS IN!

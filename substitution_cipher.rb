@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module SubstitutionCipher
+  # Caesar encrypt and decrypt
   module Caesar
     # Encrypts document using key
     # Arguments:
@@ -12,7 +15,6 @@ module SubstitutionCipher
         ((num.ord + key) % 128).chr
       end
       result.join('')
-
     end
 
     # Decrypts String document using integer key
