@@ -10,10 +10,13 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      # Split the string to array
       number = document.to_s.split('')
+      # shift the elements using key and convert to ascii
       result = number.map do |num|
         ((num.ord + key) % 128).chr
       end
+      # Join array to string
       result.join('')
     end
 
@@ -24,10 +27,13 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      # Split the string to array
       number = document.to_s.split('')
+      # shift back the elements using key and convert to ascii
       result = number.map do |num|
         (((num.ord + 128 - key) % 128) % 128).chr
       end
+      # Join array to string
       result.join('')
     end
   end
