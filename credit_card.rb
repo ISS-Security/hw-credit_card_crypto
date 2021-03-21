@@ -1,4 +1,6 @@
-require_relative './luhn_validator.rb'
+# frozen_string_literal: true
+
+require_relative './luhn_validator'
 require 'json'
 
 class CreditCard
@@ -16,7 +18,7 @@ class CreditCard
   end
 
   # returns json string
-  def to_json
+  def to_json(*_args)
     {
       # TODO: setup the hash with all instance vairables to serialize into json
       number: @number,
@@ -28,7 +30,7 @@ class CreditCard
 
   # returns all card information as single string
   def to_s
-    to_json
+    @number + @expiration_date + @owner + @credit_network
   end
 
   # return a new CreditCard object given a serialized (JSON) representation

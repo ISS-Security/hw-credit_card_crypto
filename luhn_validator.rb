@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module LuhnValidator
   # Validates credit card number using Luhn Algorithm
   # arguments: none

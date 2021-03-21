@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module SubstitutionCipher
+  # Caesar encrypt and decrypt
   module Caesar
     # Encrypts document using key
     # Arguments:
@@ -7,12 +10,14 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
-      number = document.number
-      result = number.split('').map do |num|
-        (( num.ord + key - 32 ) % 94 + 32).chr
+      # Split the string to array
+      number = document.to_s.split('')
+      # shift the elements using key and convert to ascii
+      result = number.map do |num|
+        ((num.ord + key) % 128).chr
       end
+      # Join array to string
       result.join('')
-
     end
 
     # Decrypts String document using integer key
@@ -22,6 +27,14 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      # Split the string to array
+      number = document.to_s.split('')
+      # shift back the elements using key and convert to ascii
+      result = number.map do |num|
+        (((num.ord + 128 - key) % 128) % 128).chr
+      end
+      # Join array to string
+      result.join('')
     end
   end
 

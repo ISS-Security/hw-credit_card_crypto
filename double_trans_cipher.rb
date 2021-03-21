@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
     # get the row and col length of doc matrix
