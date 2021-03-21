@@ -28,12 +28,13 @@ class CreditCard
 
   # returns all card information as single string
   def to_s
-    to_json
+    @number + @expiration_date + @owner + @credit_network
   end
 
   # return a new CreditCard object given a serialized (JSON) representation
   def self.from_s(card_s)
     # TODO: deserializing a CreditCard object
+    
   end
 
   # return a hash of the serialized credit card object
@@ -42,6 +43,7 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
+
   end
 
   # return a cryptographically secure hash

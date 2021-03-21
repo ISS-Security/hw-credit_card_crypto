@@ -7,9 +7,9 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
-      number = document.number
-      result = number.split('').map do |num|
-        (( num.ord + key - 32 ) % 94 + 32).chr
+      number = document.to_s.split('')
+      result = number.map do |num|
+        ((num.ord + key) % 128).chr
       end
       result.join('')
 
@@ -22,6 +22,11 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      number = document.to_s.split('')
+      result = number.map do |num|
+        (((num.ord + 128 - key) % 128) % 128).chr
+      end
+      result.join('')
     end
   end
 
