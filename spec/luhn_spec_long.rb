@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../credit_card'
 require 'minitest/autorun'
 require 'yaml'
