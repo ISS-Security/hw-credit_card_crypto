@@ -5,6 +5,7 @@ module DoubleTranspositionCipher
   # assume: document is a string, key is an integer
   def self.encrypt(document, key)
     ## Suggested steps for double transposition cipher
+    document = document.to_s
     # 1. find number of rows/cols such that matrix is almost square
     num_of_cols = Math.sqrt(document.length).ceil
     num_of_rows = (document.length / num_of_cols.to_f).ceil
