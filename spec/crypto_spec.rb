@@ -52,11 +52,7 @@ describe 'Test card info encryption' do
     it 'should decrypt text' do
       enc = DoubleTranspositionCipher.encrypt(@cc, @key)
       dec = DoubleTranspositionCipher.decrypt(enc, @key)
-      # puts "@cc", @cc
-      # puts "enc", enc
-      # puts "dec", dec
       _(dec).must_equal @cc.to_s
     end
   end
 end
-
