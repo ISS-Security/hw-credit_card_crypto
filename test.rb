@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def validate_checksum
   number = '4539075978941247'
   sum = 0
