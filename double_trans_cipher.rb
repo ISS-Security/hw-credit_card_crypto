@@ -9,9 +9,7 @@ module DoubleTranspositionCipher
     # 1. find number of rows/cols such that matrix is almost square
     col_num_matrix = Math.sqrt(document.to_s.length).ceil
     # 2. break plaintext into evenly sized blocks
-    matrix = document.to_s.chars
-                .each_slice(col_num_matrix).to_a
-                .tap { |i| i.last.fill(' ', i.last.length, col_num_matrix - i.last.length) }
+    matrix = document.to_s.chars.each_slice(col_num_matrix).to_a.tap { |i| i.last.fill(' ', i.last.length, col_num_matrix - i.last.length) }
 
     # 3. sort rows in predictibly random way using key as seed
     # 4. sort columns of each row in predictibly random way
@@ -21,7 +19,6 @@ module DoubleTranspositionCipher
     Kernel.srand(key + 1)
     col_swap_key = (0..matrix[0].length - 1).to_a.sort_by { rand }
 
-      
     matrix = row_swap_key.each.with_index { |r, i| row_swap_key[i] = matrix[r] }
     matrix = col_swap_key.each.with_index { |r, i| col_swap_key[i] = matrix.transpose[r] }.transpose
 
