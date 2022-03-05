@@ -11,13 +11,18 @@ module LuhnValidator
     iterator = 0
     total = 0
     nums_a.reverse.each do |digit|
-      if iterator.positive?
-        digit *= 2 if iterator.odd?
-        digit -= 9 if digit > 9
-        total += digit
-      end
+      total = calaulate_luhn(iterator, digit, total)
       iterator += 1
     end
     ((10 - (total % 10)) % 10) == nums_a[nums_a.length - 1]
+  end
+
+  def calaulate_luhn(iterator, digit, total)
+    if iterator.positive?
+      digit *= 2 if iterator.odd?
+      digit -= 9 if digit > 9
+      total += digit
+    end
+    total
   end
 end
