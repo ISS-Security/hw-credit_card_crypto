@@ -39,7 +39,7 @@ class CreditCard
   # return a cryptographically secure hash
   def hash_secure
     # TODO: implement this method
-    #   - Use sha256 from openssl to create a cryptographically secure hash.
+    #   - Use sha256 to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
   end
 end
