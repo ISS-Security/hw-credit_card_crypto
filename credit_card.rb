@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative './luhn_validator'
+require_relative './substitution_cipher'
 require 'json'
 
 # include module in luhn_validator.rb and turn it to json format
