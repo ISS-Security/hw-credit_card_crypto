@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module SubstitutionCipher
+  # encrypt/decrypt string using caesar cipher
   module Caesar
     # Encrypts document using key
     # Arguments:
@@ -7,6 +10,7 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      document.to_s.bytes.map { |x| x + key }.pack('c*')
     end
 
     # Decrypts String document using integer key
@@ -16,9 +20,11 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      document.to_s.bytes.map { |x| x - key }.pack('c*')
     end
   end
 
+  # encrypt/decrypt string using permutation cipher
   module Permutation
     # Encrypts document using key
     # Arguments:
