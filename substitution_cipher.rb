@@ -31,8 +31,19 @@ module SubstitutionCipher
     #   document: String
     #   key: Fixnum (integer)
     # Returns: String
+
+    def self.lookup_table(key)
+      (0..127).to_a.shuffle(random: Random.new(key))
+    end
+
     def self.encrypt(document, key)
       # TODO: encrypt string using a permutation cipher
+      # lookup_table = (0..127).to_a.shuffle(random: Random.new(key))
+      encrypt_s = ''
+      document.to_s.bytes.map do |s|
+        encrypt_s += (lookup_table(key)[s.ord]).chr
+      end
+      encrypt_s
     end
 
     # Decrypts String document using integer key
@@ -42,6 +53,12 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using a permutation cipher
+      # lookup_table = (0..127).to_a.shuffle(random: Random.new(key))
+      decrypt_s = ''
+      document.to_s.bytes.map do |s|
+        decrypt_s += lookup_table(key).index(s.ord).chr
+      end
+      decrypt_s
     end
   end
 end
