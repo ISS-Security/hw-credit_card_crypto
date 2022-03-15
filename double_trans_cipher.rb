@@ -9,27 +9,30 @@ module DoubleTranspositionCipher
     # 3. sort rows in predictibly random way using key as seed
     # 4. sort columns of each row in predictibly random way
     # 5. return joined cyphertext
-    document = document.to_s.chars
-    # puts document
-    row, col = find_row_col(document.length)
-    puts "#{row},#{col},#{document.length}"
-    blocks = document.each_slice(col).to_a
-    # puts blocks.to_s
-    shuffle_rows = (0...row).to_a.shuffle(random: Random.new(key))
-    shuffle_cols = (0...col).to_a.shuffle(random: Random.new(key))
-    # sort row
-    blocks = shuffle_rows.map { |index| blocks[index] }
-    # puts blocks.to_s
-    # sort col
-    blocks.map { | col |
-      puts col.to_s
-      shuffle_cols.map { |i| col[i] }.join('')
-    }.join('')
+    process(document, key, true)
   end
 
   def self.decrypt(ciphertext, key)
     # TODO: FILL THIS IN!
-    self.encrypt(ciphertext, key)
+    process(ciphertext, key, false)
+  end
+
+  def self.process(document, key, flag)
+    document = document.to_s.chars
+    row, col = find_row_col(document.length)
+    blocks = document.each_slice(col).to_a
+    shuffle_rows = (0...row).to_a.shuffle(random: Random.new(key))
+    shuffle_cols = (0...col).to_a.shuffle(random: Random.new(key))
+    blocks = shuffle_rows.map { |index| blocks[index] }
+    blocks.map { | row |
+      temp = Array.new(row.length)
+      if flag
+        shuffle_cols.each_with_index { |num, i| temp[i] = row[num] }
+      else
+        shuffle_cols.each_with_index { |num, i| temp[num] = row[i] }
+      end
+      temp.join('')
+    }.join('')
   end
 
   def self.find_row_col(number)
