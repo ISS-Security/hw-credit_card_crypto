@@ -27,6 +27,7 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using a permutation cipher
+      end
     end
 
     # Decrypts String document using integer key
