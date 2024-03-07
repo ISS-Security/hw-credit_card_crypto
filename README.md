@@ -17,9 +17,9 @@ While working on this assignment, frequently save your work and push it back to 
 
     git add .
     git commit -m "Enter meaningful description here"
-    git push -u origin master
+    git push -u origin main
 
-After the first time you have pushed using `-u origin master`, you can subsequently push it simply by doing:
+After the first time you have pushed using `-u origin main`, you can subsequently push it simply by doing:
 
     git push
 
