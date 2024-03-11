@@ -51,7 +51,7 @@ You will write the algorithm used by financial institutions to check whether a c
 
 - mixin the LuhnValidator
 - initialize the instance variables
-- create a hash that converts the instance variables in a [JSON](http://en.wikipedia.org/wiki/JSON) string format
+- create a `#to_json` method that converts the instance variables into a [JSON](http://en.wikipedia.org/wiki/JSON) string format
 
 Make sure it passes the `luhn_spec` test that is provided:
 
@@ -63,7 +63,7 @@ And bench test the performance of your code by running the bench code:
 
     ruby bench/luhn_bench.rb
 
-3. Submit: Remember that all members of your team should attempt each part of the assignment and push your individual work to Github. *You may work together* and share code and ideas. However, *only each person should submit their own solution* (see submission details [here](README.md#submission)).
+3. Submit: Remember that all members of your team should attempt each part of the assignment and push your individual work to Github. *You may work together* and share code and ideas. However, *each person should submit their own solution* (see submission details [here](README.md#submission)).
 
 ### B. Substitution and Transposition Ciphers
 
