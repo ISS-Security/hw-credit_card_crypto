@@ -11,5 +11,6 @@ module DoubleTranspositionCipher
 
   def self.decrypt(ciphertext, key)
     # TODO: FILL THIS IN!
+    # abc
   end
 end
