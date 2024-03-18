@@ -26,6 +26,7 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.encrypt(document, key)
+      # kocak ini
       # TODO: encrypt string using a permutation cipher
     end
 
