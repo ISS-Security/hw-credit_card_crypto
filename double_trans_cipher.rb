@@ -1,10 +1,10 @@
-# rubocop:disable Layout/EndOfLine, Metrics/AbcSize
-# frozen_string_literal: true
+# rubocop:disable Layout/EndOfLine this part is somesort of conflict between the UNIX and WINDOWS OS
+# frozen_string_literal: false
 
-# Module to do DTC
+# Module to do DTC enctrption and decription
 module DoubleTranspositionCipher
   # Encryption using DTC
-  def self.encrypt(document, key) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def self.encrypt(document, key) # rubocop:disable Metrics/AbcSize
     # puts "ENCRYPTING =========================="
     # TODO: FILL THIS IN!
     ## Suggested steps for double transposition cipher
@@ -26,31 +26,14 @@ module DoubleTranspositionCipher
     rows.each { |a| chunks_r.append(chunks[a]) }
 
     # 4. sort columns of each row in predictibly random way
-    chunks_rc = []
-    chunks_r.each do |el|
-      temp = []
-      cols.each { |b| temp.append(el[b]) }
-      chunks_rc.append(temp)
-    end
+    chunks_rc = columnswapping(chunks_r, cols, 0)
 
-    # for debugging only
-    # print rows, "\n"
-    # chunks.each {|n| print n, "\n"}
-    # puts "-----------------------"
-    # chunks_r.each {|n| print n, "\n"}
-    # puts "-----------------------"
-    # print cols, "\n"
-    # chunks_rc.each {|n| print n, "\n"}
-
-    # 5. return joined cyphertext
-    # print "Encrypt Result = ", chunks_rc.join("")
-    # x = chunks_rc.join("")
-    # print "\nLength = ", x.length,"\n"
+    # 5. return joined cyphertexts
     chunks_rc.join
   end
 
   # Decrption using DTC
-  def self.decrypt(document, key) # rubocop:disable Metrics/MethodLength
+  def self.decrypt(document, key) # rubocop:disable Metrics/AbcSize
     # puts "DECRYPTING =========================="
     # 1. find number of rows/cols such that matrix is almost square
     # Use square root and cel to find the number of row and column that fit the data
@@ -68,26 +51,9 @@ module DoubleTranspositionCipher
     (0..chunks.length - 1).each { |c| chunks_r.append(chunks[rows.index(c)]) }
 
     # 4. reverse columns of each row in predictibly random way
-    chunks_rc = []
-    chunks_r.each do |el|
-      temp = []
-      (0..chunks[0].length - 1).each { |d| temp.append(el[cols.index(d)]) }
-      chunks_rc.append(temp)
-    end
-
-    # for debugging only
-    # print rows, "\n"
-    # chunks.each {|n| print n, "\n"}
-    # puts "-----------------------"
-    # chunks_r.each {|n| print n, "\n"}
-    # puts "-----------------------"
-    # print cols, "\n"
-    # chunks_rc.each {|n| print n, "\n"}
+    chunks_rc = columnswapping(chunks_r, cols, 1)
 
     # 5. return joined text
-    # print "Decrypted Result = ", chunks_rc.join("").delete("~")
-    # x = chunks_rc.join("").delete("~")
-    # print "\nLength = ", x.length,"\n"
     chunks_rc.join.delete('~')
   end
 
@@ -98,6 +64,17 @@ module DoubleTranspositionCipher
 
     [rows, cols]
   end
+
+  # swapping the column, flag = 0 for encrypt and flag = 1 for decrypt
+  def self.columnswapping(inp, col, edf)
+    final = []
+    inp.each do |el|
+      temp = []
+      edf == 1 ? col.each { |b| temp.append(el[b]) } : (0..inp[0].length - 1).each { |d| temp.append(el[col.index(d)]) }
+      final.append(temp)
+    end
+    final
+  end
 end
 
-# rubocop:enable Layout/EndOfLine, Metrics/AbcSize
+# rubocop:enable Layout/EndOfLine
