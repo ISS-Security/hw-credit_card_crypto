@@ -12,32 +12,32 @@ describe 'Test card info encryption' do
                          'Soumya Ray', 'Visa')
     @key = 3
   end
-end
-describe 'Using Caesar cipher' do
-  it 'should encrypt card information' do
-    enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
-    _(enc).wont_equal @cc.to_s
-    _(enc).wont_be_nil
+  describe 'Using Caesar cipher' do
+    it 'should encrypt card information' do
+      enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
+      _(enc).wont_equal @cc.to_s
+      _(enc).wont_be_nil
+    end
+
+    it 'should decrypt text' do
+      enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
+      dec = SubstitutionCipher::Caesar.decrypt(enc, @key)
+      _(dec).must_equal @cc.to_s
+    end
   end
 
-  it 'should decrypt text' do
-    enc = SubstitutionCipher::Caesar.encrypt(@cc, @key)
-    dec = SubstitutionCipher::Caesar.decrypt(enc, @key)
-    _(dec).must_equal @cc.to_s
-  end
-end
+  describe 'Using Permutation cipher' do
+    it 'should encrypt card information' do
+      enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
+      _(enc).wont_equal @cc.to_s
+      _(enc).wont_be_nil
+    end
 
-describe 'Using Permutation cipher' do
-  it 'should encrypt card information' do
-    enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
-    _(enc).wont_equal @cc.to_s
-    _(enc).wont_be_nil
-  end
-
-  it 'should decrypt text' do
-    enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
-    dec = SubstitutionCipher::Permutation.decrypt(enc, @key)
-    _(dec).must_equal @cc.to_s
+    it 'should decrypt text' do
+      enc = SubstitutionCipher::Permutation.encrypt(@cc, @key)
+      dec = SubstitutionCipher::Permutation.decrypt(enc, @key)
+      _(dec).must_equal @cc.to_s
+    end
   end
 end
 
