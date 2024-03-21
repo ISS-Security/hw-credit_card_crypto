@@ -7,6 +7,8 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      # since the doc string says that document is a String, I turn the document from Credit Card Object to String using to_s.
+      document.to_s.chars.map { |char| (char.ord + key).chr }.join
     end
 
     # Decrypts String document using integer key
@@ -16,6 +18,8 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      # since the doc string says that document is a String, I turn the document from Credit Card Object to String using to_s.
+      document.to_s.chars.map { |char| (char.ord - key).chr }.join
     end
   end
 
