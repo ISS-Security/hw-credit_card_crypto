@@ -5,11 +5,10 @@ This assignment requires you to try your hand out at a very common error checkin
 ## Retrieving Files
 
 1. Make sure to setup the git tool as we described in class (see online handout on 'Git Version Control'). Also, make sure to create your own RSA keypair and link your public key to Github. You can then clone any public project from Github onto your local machine.
-2. Fork this project on Github (a copy is created in your Github account) using the 'Fork' button
+2. Fork this project on Github (a copy is created in your Github account) using the 'Fork' button.
 3. Clone *your copy* of the forked project onto your local machine:
 `git clone git@github.com:[your_username]/hw_3-credit_card_crypto.git`
-4. Add the `bundler-audit` gem to your list of gems in `Gemfile`; run `bundle install` to install it
-5. Use the 'bundle' gem (which you should have installed earlier) to install all gems required for this assignment (listed in the `Gemfile`) onto your local machine: `bundle install`
+4. Run `bundle install` to install all gems in `Gemfile`.
 
 ## Working on Assignment
 
@@ -27,11 +26,7 @@ After the first time you have pushed using `-u origin main`, you can subsequentl
 
 Submission instructions will be provided separately by your instructor. But before submission, make sure each file you have worked on passes the style guide suggested by Rubocop:
 
-      rubocop <your_ruby_file.rb>
-
-Always run a final audit of your gems for vulnerabilities:
-
-      bundle-audit check --update
+    rubocop <your_ruby_file.rb>
 
 ## Requirements
 
@@ -49,7 +44,7 @@ You will write the algorithm used by financial institutions to check whether a c
 
 2. Implement the file called `credit_card.rb` (see TODO comments):
 
-- mixin the LuhnValidator
+- mixin the `LuhnValidator` module
 - initialize the instance variables
 - create a `#to_json` method that converts the instance variables into a [JSON](http://en.wikipedia.org/wiki/JSON) string format
 
@@ -100,7 +95,7 @@ Implement a modern cryptographic encryption method:
 - `ModernSymmetricCipher` in `sk_cipher.rb`
 - Write your own tests for ModernSymmetricCipher in `spec/crypto_spec.rb`:
   - make sure your implemented tests *all fail before writing* any code!
-  - make sure they pass *one-by-one* while writing code :)
+  - make sure they pass *one-by-one* while writing code
   - Can you DRY out all the tests using metaprogramming?
 - Note that you are required to return serialized data as Base64:
   - Use `require 'base64'` to use Ruby's Base64 gem
