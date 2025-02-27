@@ -4,11 +4,12 @@ This assignment requires you to try your hand out at a very common error checkin
 
 ## Retrieving Files
 
-1. Make sure to setup the git tool as we described in class (see online handout on 'Git Version Control'). Also, make sure to create your own RSA keypair and link your public key to Github. You can then clone any public project from Github onto your local machine.
+1. Make sure to setup the git tool as we described in class (see online handout on 'Git Version Control'). Also, make sure to create your own SSH keypair and link your public key to Github. You can then clone any public project from Github onto your local machine without a password.
 2. Fork this project on Github (a copy is created in your Github account) using the 'Fork' button.
 3. Clone *your copy* of the forked project onto your local machine:
 `git clone git@github.com:[your_username]/hw_3-credit_card_crypto.git`
-4. Run `bundle install` to install all gems in `Gemfile`.
+4. Set the local Ruby version in `.ruby-version` using `rbenv local [version]`
+5. Run `bundle install` to install all gems in `Gemfile`; a `Gemfile.lock` file will be created.
 
 ## Working on Assignment
 
@@ -50,11 +51,11 @@ You will write the algorithm used by financial institutions to check whether a c
 
 Make sure it passes the `luhn_spec` test that is provided:
 
-    ruby spec/luhn_spec.rb
+    bundle exec ruby spec/luhn_spec.rb
 
-(run the spec file from the root directory of your solution)
+(run the spec file from the root directory of your solution; `bundle exec` ensures that only the gems in your `Gemfile.lock` are used)
 
-And bench test the performance of your code by running the bench code:
+Optionally, bench test the performance of your code by running the bench code:
 
     ruby bench/luhn_bench.rb
 
