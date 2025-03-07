@@ -3,21 +3,32 @@
 require_relative './luhn_validator'
 require 'json'
 
+# This class represents a credit card and provides methods for
+# serialization, validation, and secure hashing.
 class CreditCard
   # TODO: mixin the LuhnValidator using an 'include' statement
+  include LuhnValidator
 
   # instance variables with automatic getter/setter methods
   attr_accessor :number, :expiration_date, :owner, :credit_network
 
   def initialize(number, expiration_date, owner, credit_network)
     # TODO: initialize the instance variables listed above
+    @number = number.to_s
+    @expiration_date = expiration_date.to_s
+    @owner = owner.to_s
+    @credit_network = credit_network
   end
 
   # returns json string
-  def to_json
+  def to_json(*args)
     {
       # TODO: setup the hash with all instance vairables to serialize into json
-    }.to_json
+      number: @number.to_s,
+      expiration_date: @expiration_date.to_s,
+      owner: @owner.to_s,
+      credit_network: @credit_network.to_s
+    }.to_json(*args)
   end
 
   # returns all card information as single string
