@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
+# This module provides encryption and decryption using different substitution ciphers.
 module SubstitutionCipher
+  # Implements the Caesar cipher for encryption and decryption.
   module Caesar
     # Encrypts document using key
     # Arguments:
@@ -7,6 +11,7 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      document.to_s.chars.map { |char| (char.ord + key).chr }.join
     end
 
     # Decrypts String document using integer key
@@ -16,6 +21,7 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      document.to_s.chars.map { |char| (char.ord - key).chr }.join
     end
   end
 
