@@ -25,6 +25,7 @@ module SubstitutionCipher
     end
   end
 
+  # Implements the Permutation cipher for encryption and decryption.
   module Permutation
     # Encrypts document using key
     # Arguments:
@@ -33,6 +34,8 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using a permutation cipher
+      lookup, = generate_lookup(key)
+      document.to_s.chars.map { |char| lookup[char.ord].chr }.join
     end
 
     # Decrypts String document using integer key
@@ -42,6 +45,17 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using a permutation cipher
+      _, reverse_lookup = generate_lookup(key)
+      document.to_s.chars.map { |char| reverse_lookup[char.ord].chr }.join
+    end
+
+    def self.generate_lookup(key)
+      rng = Random.new(key)
+      original = (0..127).to_a
+      shuffled = original.shuffle(random: rng)
+      lookup = Hash[original.zip(shuffled)]
+      reverse_lookup = Hash[shuffled.zip(original)]
+      [lookup, reverse_lookup]
     end
   end
 end
