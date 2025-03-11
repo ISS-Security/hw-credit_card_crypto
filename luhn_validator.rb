@@ -28,7 +28,7 @@ module LuhnValidator
       sum + if index % 2 != parity
               value
             elsif value > 4
-              2 * value - 9
+              (2 * value) - 9
             else
               2 * value
             end
