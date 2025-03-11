@@ -29,7 +29,7 @@ module DoubleTranspositionCipher
   def self.to_matrix(text, padding = "\0")
     padded_length = (@size * @size)
     text = text.dup
-    text << padding * (padded_length - text.length) if text.length < padded_length
+    text << (padding * (padded_length - text.length)) if text.length < padded_length
     text.chars.each_slice(@size).to_a
   end
 

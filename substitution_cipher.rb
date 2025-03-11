@@ -17,20 +17,33 @@ module SubstitutionCipher
 
   # Permutation cipher
   module Permutation
+    # Encrypts document using key
+    # Arguments:
+    #   document: String
+    #   key: Fixnum (integer)
+    # Returns: String
     def self.encrypt(document, key)
-      # Encrypt string using a permutation cipher
-      rng = Random.new(key)
-      lookup_table = (0..127).to_a.shuffle(random: rng)
-
-      document.chars.map { |c| lookup_table[c.ord].chr }.join
+      # TODO: encrypt string using a permutation cipher
+      encrypt_table = create_permutation_table(key)
+      document.chars.map { |char| encrypt_table[char.ord].chr }.join
     end
 
+    # Decrypts String document using integer key
+    # Arguments:
+    #   document: String
+    #   key: Fixnum (integer)
+    # Returns: String
     def self.decrypt(document, key)
-      # Decrypt string using a permutation cipher
-      rng = Random.new(key)
-      lookup_table = (0..127).to_a.shuffle(random: rng)
+      # TODO: decrypt string using a permutation cipher
+      decrypt_table = create_permutation_table(key)
+      document.chars.map { |char| decrypt_table.index(char.ord).chr }.join
+    end
 
-      document.chars.map { |c| lookup_table.index(c.ord).chr }.join
+    private
+
+    def self.create_permutation_table(key)
+      rng = Random.new(key)
+      (0..127).to_a.shuffle(random: rng)
     end
   end
 end
