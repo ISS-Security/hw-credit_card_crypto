@@ -25,7 +25,7 @@ module SubstitutionCipher
     end
   end
 
-# Permutation module
+  # Permutation module
   module Permutation
     # Encrypts document using key
     # Arguments:
