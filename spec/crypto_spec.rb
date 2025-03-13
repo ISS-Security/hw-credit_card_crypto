@@ -3,6 +3,7 @@
 require_relative '../credit_card'
 require_relative '../substitution_cipher'
 require 'minitest/autorun'
+require 'minitest/rg'
 
 describe 'Test card info encryption' do
   before do
