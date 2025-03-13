@@ -1,0 +1,56 @@
+# Assignment teesting workflow config for CI/CD on Github
+
+name: Crypto Tests
+
+# Controls when the action will run. 
+on:
+  # Run this workflow manually from the Actions tab on GitHub
+  workflow_dispatch:
+  # On pull requests to the main branch
+  pull_request:
+    branches: [ main ]
+
+# A workflow is defined of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "run_spec"
+  run_spec:
+    strategy:
+      # don't cancel other jobs if one fails
+      fail-fast: false
+      # maximum number of jobs that can run simultaneously
+      max-parallel: 1
+      matrix:
+        os: [ubuntu, macos]
+    runs-on: ${{ matrix.os }}-latest  # Runs on latest builds of matrix OSes
+    env:
+      BUNDLE_WITHOUT: production # skip installing production gem (pg)
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install libsodium for Linux and MacOS
+      - name: Install dependencies on Linux
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt update
+          sudo apt install -y libsodium-dev
+      - name: Install dependencies on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew install libsodium
+
+      # Verify installation of libsodium
+      - name: Verify installation
+        run: |
+          pkg-config --modversion libsodium || echo "Libsodium not found!"
+          
+      # Builds on a predefined action that has Ruby installed 
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: Run all specs
+        run: |
+          bundle exec ruby spec/crypto_spec.rb
