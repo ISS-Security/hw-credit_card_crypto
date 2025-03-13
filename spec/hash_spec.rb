@@ -19,7 +19,7 @@ card_details = [
     net: 'Mastercard' }
 ]
 
-cards = card_details.map do |c|
+card_details.map do |c|
   CreditCard.new(c[:num], c[:exp], c[:name], c[:net])
 end
 
