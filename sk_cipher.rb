@@ -1,3 +1,4 @@
+# test 
 module ModernSymmetricCipher
   def self.generate_new_key
     # TODO: Return a new key as a Base64 string
