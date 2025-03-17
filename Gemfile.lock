@@ -2,6 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    base64 (0.2.0)
+    ffi (1.17.1)
+    ffi (1.17.1-x86_64-linux-gnu)
     json (2.10.1)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
@@ -14,6 +17,8 @@ GEM
       racc
     racc (1.8.1)
     rainbow (3.1.1)
+    rbnacl (7.1.2)
+      ffi (~> 1)
     regexp_parser (2.10.0)
     rubocop (1.73.1)
       json (~> 2.3)
@@ -38,9 +43,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  base64
   json
   minitest
   minitest-rg
+  rbnacl
   rubocop
 
 BUNDLED WITH
