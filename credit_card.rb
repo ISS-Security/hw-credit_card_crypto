@@ -20,13 +20,15 @@ class CreditCard
 
   # returns json string
   def to_json(*_args)
-    {
+    data = {
       # TODO: setup the hash with all instance vairables to serialize into json
       number: @number,
       expiration_date: @expiration_date,
       owner: @owner,
       credit_network: @credit_network
     }.to_json
+
+    Base64.strict_encode64(data)
   end
 
   # returns all card information as single string
@@ -35,8 +37,9 @@ class CreditCard
   end
 
   # return a new CreditCard object given a serialized (JSON) representation
-  def self.from_s(card_s)
+  def self.from_s(b64_str)
     # TODO: deserializing a CreditCard object
+    card_s = Base64.strict_decode64(b64_str)
     card_data = JSON.parse(card_s)
     new(card_data['number'], card_data['expiration_date'],
         card_data['owner'], card_data['credit_network'])
