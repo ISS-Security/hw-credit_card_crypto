@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'luhn_validator'
+require 'rbnacl'
 require 'json'
 
 # top-level documentation comment
@@ -48,12 +49,14 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
-    {
+    serialized_data = {
       number: @number,
       expiration_date: @expiration_date,
       owner: @owner,
       credit_network: @credit_network
-    }.hash
+  }.to_json
+
+    RbNaCl::Hash.sha256(serialized_data)
   end
 
   # return a cryptographically secure hash
