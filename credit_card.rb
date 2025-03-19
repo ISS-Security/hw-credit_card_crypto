@@ -30,16 +30,8 @@ class CreditCard
     # TODO: deserializing a CreditCard object
   end
 
-  # return a hash of the serialized credit card object
-  def hash
-    # TODO: implement this method
-    #   - Produce a hash (using default hash method) of the credit card's
-    #     serialized contents.
-    #   - Credit cards with identical information should produce the same hash
-  end
-
   # return a cryptographically secure hash
-  def hash_secure
+  def hash
     # TODO: implement this method
     #   - Use sha256 to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
