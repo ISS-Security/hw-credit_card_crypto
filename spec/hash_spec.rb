@@ -2,6 +2,7 @@
 
 require_relative '../credit_card'
 require 'minitest/autorun'
+require 'minitest/rg'
 
 # Feel free to replace the contents of cards with data from your own yaml file
 card_details = [
@@ -24,27 +25,11 @@ cards = card_details.map do |c|
 end
 
 describe 'Test hashing requirements' do
-  describe 'Test regular hashing' do
-    describe 'Check hashes are consistently produced' do
-      # TODO: Check that each card produces the same hash if hashed repeatedly
-    end
-
-    describe 'Check for unique hashes' do
-      # TODO: Check that each card produces a different hash than other cards
-    end
+  describe 'Check hashes are consistently produced' do
+    # TODO: Check that each card produces the same hash if hashed repeatedly
   end
 
-  describe 'Test cryptographic hashing' do
-    describe 'Check hashes are consistently produced' do
-      # TODO: Check that each card produces the same hash if hashed repeatedly
-    end
-
-    describe 'Check for unique hashes' do
-      # TODO: Check that each card produces a different hash than other cards
-    end
-
-    describe 'Check regular hash not same as cryptographic hash' do
-      # TODO: Check that each card's hash is different from its hash_secure
-    end
+  describe 'Check for unique hashes' do
+    # TODO: Check that each card produces a different hash than other cards
   end
 end
