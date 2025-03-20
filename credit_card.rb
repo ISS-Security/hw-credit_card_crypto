@@ -3,6 +3,8 @@
 require_relative 'luhn_validator'
 require 'rbnacl'
 require 'json'
+require 'base64'
+require 'digest' # require for the SHA256 hash
 
 # top-level documentation comment
 class CreditCard
@@ -52,23 +54,14 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
-    serialized_data = {
-      number: @number,
-      expiration_date: @expiration_date,
-      owner: @owner,
-      credit_network: @credit_network
-  }.to_json
-
-    RbNaCl::Hash.sha256(serialized_data)
+    to_s.hash
   end
 
   # return a cryptographically secure hash
-  def hash_secure
+  def secure_hash
     # TODO: implement this method
     #   - Use sha256 to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
-    sha256 = Digest::SHA256.new
-    sha256.update(to_s)
-    sha256.hexdigest
+    Digest::SHA256.hexdigest(to_s)
   end
 end
