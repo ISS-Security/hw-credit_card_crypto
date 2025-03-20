@@ -39,8 +39,6 @@ module SubstitutionCipher
       document.chars.map { |char| decrypt_table.index(char.ord).chr }.join
     end
 
-    private
-
     def self.create_permutation_table(key)
       rng = Random.new(key)
       (0..127).to_a.shuffle(random: rng)
