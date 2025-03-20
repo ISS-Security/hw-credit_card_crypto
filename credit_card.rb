@@ -54,11 +54,11 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
-    to_s.hash
+    RbNaCl::Hash.sha256(to_s)
   end
 
   # return a cryptographically secure hash
-  def secure_hash
+  def hash_secure
     # TODO: implement this method
     #   - Use sha256 to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
