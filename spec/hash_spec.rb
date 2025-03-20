@@ -31,20 +31,38 @@ describe 'Test hashing requirements' do
   describe 'Check hashes are consistently produced' do
     it 'produces consistent hashes for each card' do
       CARDS.each do |card|
-        hash1 = card.hash
-        hash2 = card.hash
-        hash3 = card.hash
-        _(hash1).must_equal hash2, 'Hash inconsistent: hash1 & hash2'
-        _(hash2).must_equal hash3, 'Hash inconsistent: hash2 & hash3'
+        hashes = Array.new(3) { card.hash }
+        secure_hashes = Array.new(3) { card.secure_hash }
+        _(hashes.uniq.size).must_equal 1, 'Default hash values are inconsistent'
+        _(secure_hashes.uniq.size).must_equal 1, 'Secure hash values are inconsistent'
+      end
+    end
+  end
+
+  describe 'Check identical cards produce identical hashes' do
+    it 'producees same hash for identical cards' do
+      CARD_DETAILS.each do |detail|
+        original_card = CreditCard.new(*detail.values_at(:num, :exp, :name, :net))
+        identical = CreditCard.new(*detail.values_at(:num, :exp, :name, :net))
+        # Test default hash
+        _(identical.hash).must_equal original_card.hash, 'Identical cards should have identical default hashes'
+        # Test secure hash
+        _(identical.secure_hash).must_equal original_card.secure_hash,
+                                            'Identical cards should have identical secure hashes'
       end
     end
   end
 
   describe 'Check for unique hashes' do
     it 'produces unique hashes for different cards' do
+      # Test default hash
       hashes = CARDS.map(&:hash)
       unique_hashes = hashes.uniq
-      _(hashes.length).must_equal unique_hashes.length, 'Duplicate hashes found'
+      _(hashes.length).must_equal unique_hashes.length, 'Duplicate default hashes found'
+      # Test secure hash
+      secure_hashes = CARDS.map(&:secure_hash)
+      unique_secure_hashes = secure_hashes.uniq
+      _(secure_hashes.length).must_equal unique_secure_hashes.length, 'Duplicate secure hashes found'
     end
   end
 end
