@@ -5,7 +5,17 @@ module LuhnValidator
   # returns: true/false whether last digit is correct
   def validate_checksum
     nums_a = number.to_s.chars.map(&:to_i)
-
-    # TODO: use the integers in nums_a to validate its last check digit
+    # reverse the order
+    nums_a_reversed = nums_a.reverse
+    # exlcude the ast digit (payload)
+    nums_a_reversed.each_with_index do |x, i|
+      # for the odd position after reversed
+      if i.odd?
+        nums_a_reversed[i] = x * 2
+        nums_a_reversed[i] -= 9 if nums_a_reversed[i] > 9
+      end
+    end
+    sum_nums_a = nums_a_reversed.sum
+    (sum_nums_a % 10).zero?
   end
 end
