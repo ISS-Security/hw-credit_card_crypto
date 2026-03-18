@@ -9,6 +9,10 @@ module SubstitutionCipher
     # Returns: String
     def self.encrypt(document, key)
       # TODO: encrypt string using caesar cipher
+      string = document.to_s
+      key = key.to_i
+      encrypted = string.chars.map { |x| (x.ord + key) }
+      encrypted.map { |x| x.chr }.join
     end
 
     # Decrypts String document using integer key
@@ -18,6 +22,10 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using caesar cipher
+      string = document.to_s
+      key = key.to_i
+      decrypted = string.chars.map { |x| (x.ord - key)}
+      decrypted.map { |x| x.chr }.join
     end
   end
 
