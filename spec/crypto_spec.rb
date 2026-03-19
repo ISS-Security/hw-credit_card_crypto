@@ -56,19 +56,30 @@ describe 'Test card info encryption' do
   #   end
   # end
 
-  # # TODO: Add tests for double transposition and modern symmetric key ciphers
-  # #       Can you DRY out the tests using metaprogramming? (see lecture slide)
-  # describe 'Using Double Transposition cipher' do
-  #   it 'should encrypt card information' do
-  #     enc = DoubleTranspositionCipher.encrypt(@cc, @key)
-  #     _(enc).wont_equal @cc.to_s
-  #     _(enc).wont_be_nil
-  #   end
+  # TODO: Add tests for double transposition and modern symmetric key ciphers
+  #       Can you DRY out the tests using metaprogramming? (see lecture slide)
+  describe 'Using Double Transposition cipher' do
+    it 'should encrypt card information' do
+      text = "DECRYPTIONSUCCESFUL"
+      key = 5
+      enc = DoubleTranspositionCipher.encrypt(text, key)
+      _(enc).wont_equal text
+      _(enc).wont_be_nil
+    end
 
-  #   it 'should decrypt text' do
-  #     enc = DoubleTranspositionCipher.encrypt(@cc, @key)
-  #     dec = DoubleTranspositionCipher.decrypt(enc, @key)
-  #     _(dec).must_equal @cc.to_s
-  #   end
-  # end
+    it 'should decrypt text' do
+      text = "DECRYPTIONSUCCESFUL"
+      key = 5
+      enc = DoubleTranspositionCipher.encrypt(text, key)
+      dec = DoubleTranspositionCipher.decrypt(enc, key)
+      _(dec).must_equal text
+    end
+
+    it 'should work with a different key' do
+      text = "HELLOWORLD"
+      enc1 = DoubleTranspositionCipher.encrypt(text, 6)
+      enc2 = DoubleTranspositionCipher.encrypt(text, 9)
+      _(enc1).wont_equal enc2
+    end
+  end
 end
