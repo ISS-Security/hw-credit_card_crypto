@@ -2,7 +2,7 @@
 
 require_relative './luhn_validator'
 require 'json'
-require 'digest' # for sha256
+require 'rbnacl' # for sha256
 
 # class for representing a credit card
 class CreditCard
@@ -56,8 +56,8 @@ class CreditCard
     #   - Use sha256 to create a cryptographically secure hash.
     #   - Credit cards with identical information should produce the same hash
     # combine cc data
-    combined_data = [@number, @expiration_date, @owner, @credit_network].join('/')
+    combined_data = to_json
     # sha256 to create the hash
-    Digest::SHA256.hexdigest(combined_data)
+    RbNaCl::Hash.sha256(combined_data)
   end
 end
