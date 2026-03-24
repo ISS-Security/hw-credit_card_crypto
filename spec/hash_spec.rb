@@ -26,10 +26,21 @@ end
 
 describe 'Test hashing requirements' do
   describe 'Check hashes are consistently produced' do
-    # TODO: Check that each card produces the same hash if hashed repeatedly
+    it 'Produce the same hash for same card' do
+      cards.each do |card|
+        h1 = card.hash
+        h2 = card.hash
+        _(h1).must_equal h2
+      end
+    end
   end
 
   describe 'Check for unique hashes' do
-    # TODO: Check that each card produces a different hash than other cards
+    it 'Produce unique hash for every cards' do
+      hashes = cards.map do |card| 
+        card.hash
+      end
+      _(hashes.uniq.length).must_equal hashes.length
+    end
   end
 end
