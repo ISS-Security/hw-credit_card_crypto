@@ -44,7 +44,7 @@ describe 'Test card info encryption' do
 
   # TODO: Add tests for double transposition and modern symmetric key ciphers
   #       Can you DRY out the tests using metaprogramming? (see lecture slide)
-    describe 'Using Double Transposition cipher' do
+  describe 'Using Double Transposition cipher' do
     it 'should encrypt card information' do
       enc = DoubleTranspositionCipher.encrypt(@cc, @key)
       _(enc).wont_equal @cc.to_s
@@ -57,7 +57,6 @@ describe 'Test card info encryption' do
       _(dec).must_equal @cc.to_s
     end
   end
-
 end
 
 describe 'Encryption methods' do

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# DoubleTranspositionCipher
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
     # TODO: FILL THIS IN!
@@ -12,7 +15,7 @@ module DoubleTranspositionCipher
     cols = Math.sqrt(document.length).ceil
     rows = (document.length.to_f / cols).ceil
 
-    padded = document.ljust(rows * cols, " ")
+    padded = document.ljust(rows * cols, ' ')
     matrix = padded.chars.each_slice(cols).to_a
     rng = Random.new(key)
 
@@ -24,7 +27,7 @@ module DoubleTranspositionCipher
       col_perm.map { |i| row[i] }
     end
 
-    matrix.flatten.join
+    matrix.join
   end
 
   def self.decrypt(ciphertext, key)
@@ -53,6 +56,6 @@ module DoubleTranspositionCipher
 
     matrix = inv_row.map { |i| matrix[i] }
 
-    matrix.flatten.join.rstrip
+    matrix.join.rstrip
   end
 end
