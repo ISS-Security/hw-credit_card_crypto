@@ -6,7 +6,7 @@ module LuhnValidator
   # arguments: none
   # assumes: a local String called 'number' exists
   # returns: true/false whether last digit is correct
-  def validate_checksum
+  def validate_checksum?
     nums_a = number.to_s.chars.map(&:to_i)
     check_digit = nums_a.pop
 
