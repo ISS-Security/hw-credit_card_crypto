@@ -37,9 +37,7 @@ describe 'Test hashing requirements' do
 
   describe 'Check for unique hashes' do
     it 'Produce unique hash for every cards' do
-      hashes = cards.map do |card| 
-        card.hash
-      end
+      hashes = cards.map(&:hash)
       _(hashes.uniq.length).must_equal hashes.length
     end
   end

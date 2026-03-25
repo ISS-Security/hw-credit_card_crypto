@@ -41,7 +41,7 @@ describe 'Test card info encryption' do
   #       Can you DRY out the tests using metaprogramming? (see lecture slide)
   describe 'Using Double Transposition cipher' do
     it 'should not work with a different key' do
-      text = "HELLOWORLD"
+      text = 'HELLOWORLD'
       enc1 = DoubleTranspositionCipher.encrypt(text, 6)
       enc2 = DoubleTranspositionCipher.encrypt(text, 9)
       _(enc1).wont_equal enc2
